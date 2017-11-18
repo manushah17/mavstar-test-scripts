@@ -19,8 +19,8 @@ class Test_login(unittest.TestCase):
 
     def test_user_login(self):
        
-       user = "superadmin" # instructor
-       pwd = "admin123" #instructor1a
+       user = "instructor" # instructor
+       pwd = "instructor1a" #instructor1a
        driver = self.driver
        driver.get("http://mavstaruno.pythonanywhere.com/login")
        #driver.get("http://127.0.0.1:8000/login")
