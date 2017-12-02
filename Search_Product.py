@@ -13,7 +13,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 #
 class Search_Product(unittest.TestCase):   
 
-    @classmethod
     def setUp(self):
        self.driver = webdriver.Chrome()
        self.driver.maximize_window()
@@ -48,11 +47,10 @@ class Search_Product(unittest.TestCase):
        elem.send_keys(search_product)
        time.sleep(3)
        btnSearch = driver.find_element_by_xpath('//*[@id="app-layout"]/div[2]/div/div/div/form/input[2]').click()
-       time.sleep(5)
+       time.sleep(1)
        
 
        
-    @classmethod
     def tearDown(self):
        self.driver.close()
 

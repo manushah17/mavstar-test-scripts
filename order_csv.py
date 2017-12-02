@@ -10,19 +10,20 @@ from selenium.webdriver.support.ui import Select
 from datetime import datetime
 
 #
-class Test_login(unittest.TestCase):   
+class Order_csv(unittest.TestCase):   
 
+    @classmethod
     def setUp(self):
        self.driver = webdriver.Chrome()
        self.driver.maximize_window()
 
-    def test_user_login(self):
+    def test_order_csv(self):
        
        user = "instructor" # instructor
        pwd = "instructor1a" #instructor1a
        driver = self.driver
-       driver.get("http://mavstaruno.pythonanywhere.com/login")
-       #driver.get("http://127.0.0.1:8000/login")
+       driver.get("http://mavstaruno.pythonanywhere.com/admin")
+       #driver.get("http://127.0.0.1:8000/admin")
        time.sleep(2)
        elem = driver.find_element_by_id("id_username")
        elem.send_keys(user)
@@ -32,20 +33,20 @@ class Test_login(unittest.TestCase):
        elem.send_keys(Keys.RETURN)
        time.sleep(1)
        
-       # mouse over on non-stock investment image and View Details button
-       invApp_uniform = driver.find_element_by_xpath('//*[@id="myNavbar"]/ul[1]/li[2]/a').click()
-       time.sleep(3)
-       invApp_uniform_product = driver.find_element_by_xpath('//*[@id="app-layout"]/div[2]/div/div/div/div/div[2]/div/a/img').click()
+       div_order = driver.find_element_by_xpath('//*[@id="content-main"]/div[3]/table/tbody/tr/th/a').click()
        time.sleep(3)
        
-       invApp_uniform = driver.find_element_by_xpath('//*[@id="app-layout"]/div[2]/div/div/div[2]/div/form/input[3]').click()
+       div_checkbox = driver.find_element_by_id("action-toggle").click()
        time.sleep(3)
-       invBats = driver.find_element_by_xpath('//*[@id="myNavbar"]/ul[1]/li[5]/a').click()
-       time.sleep(3)
-       invBats = driver.find_element_by_xpath('//*[@id="myNavbar"]/ul[2]/li[2]/a').click()
-       time.sleep(1)
-
+       id_action = 'Export to CSV'
+       select = Select(driver.find_element_by_name('action'))
+       select.select_by_visible_text(id_action)
        
+       
+       btn_go = driver.find_element_by_xpath('//*[@id="changelist-form"]/div[1]/button').click()
+       time.sleep(3)
+       
+              
     def tearDown(self):
        self.driver.close()
 

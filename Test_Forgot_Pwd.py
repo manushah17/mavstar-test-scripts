@@ -23,7 +23,7 @@ class Test_Forgot_Pwd(unittest.TestCase):
        driver.maximize_window()
        driver.get("http://mavstaruno.pythonanywhere.com/login")
        #driver.get("http://127.0.0.1:8000/login")
-       time.sleep(5)
+       time.sleep(2)
        elem = driver.find_element_by_id("id_username")
        elem.send_keys(user)
        elem = driver.find_element_by_id("id_password")
@@ -38,7 +38,7 @@ class Test_Forgot_Pwd(unittest.TestCase):
        elem.send_keys(email)
        time.sleep(3)
        invSendEmail = driver.find_element_by_xpath('//*[@id="app-layout"]/div[2]/form/p[2]/input').click()
-       time.sleep(3)
+       time.sleep(2)
               
 
     def tearDown(self):

@@ -6,17 +6,13 @@ from selenium.webdriver.common.keys import Keys
 class Blog_ATS(unittest.TestCase):
 
    def setUp(self):
-       self.driver = webdriver.Chrome('C:\Program Files\chromedriver.exe')
+       self.driver = webdriver.Chrome()
 
 
    def test_blog(self):
         driver = self.driver
         driver.maximize_window()
         driver.get("http://mavstaruno.pythonanywhere.com/")
-        time.sleep(2)
-        driver.get("http://mavstaruno.pythonanywhere.com/")
-        time.sleep(2)
-        assert "Logged In"
         time.sleep(2)
         driver.get('http://mavstaruno.pythonanywhere.com/apparel-uniforms/')
         time.sleep(2)
@@ -27,7 +23,7 @@ class Blog_ATS(unittest.TestCase):
         driver.get('http://mavstaruno.pythonanywhere.com/gloves-mitts/')
         time.sleep(2)
         driver.get('http://mavstaruno.pythonanywhere.com/helmet-protective-gear/')
-        time.sleep(2)
+        time.sleep(1)
 
    def tearDown(self):
        self.driver.close()

@@ -6,11 +6,11 @@ from selenium.webdriver.common.keys import Keys
 class Blog_ATS(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome('C:\python4900\chromedriver.exe')
+        self.driver = webdriver.Chrome()
 
     def test_blog(self):
-        user = "superadmin"  # instructor
-        pwd = "admin123"  # instructor1a
+        user = "instructor"  # instructor
+        pwd = "instructor1a"  # instructor1a
         id_first_name = "karthik"
         id_last_name = "bellary"
         id_email = "abcasdasd@gmail.com"
@@ -29,6 +29,8 @@ class Blog_ATS(unittest.TestCase):
         time.sleep(3)
         elem.send_keys(Keys.RETURN)
         time.sleep(3)
+        elem = driver.find_element_by_xpath('//*[@id="myNavbar"]/ul[1]/li[1]/a').click()
+        time.sleep(5)
         elem = driver.find_element_by_xpath('//*[@id="app-layout"]/div[2]/div/div/div/div/div[1]/div/a').click()
         time.sleep(3)
         elem = driver.find_element_by_xpath('//*[@id="app-layout"]/div[2]/div/div/div[2]/div/form/input[3]').click()
@@ -50,7 +52,9 @@ class Blog_ATS(unittest.TestCase):
         time.sleep(3)
         elem = driver.find_element_by_xpath('// *[ @ id = "content"] / form / p[7] / input').click()
         time.sleep(3)
-
+        elem = driver.find_element_by_xpath('//*[@id="app-layout"]/div[2]/div/div[2]/form/input[12]').click()
+        time.sleep(3)
+        
 
 
     def tearDown(self):
