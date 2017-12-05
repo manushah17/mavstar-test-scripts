@@ -22,8 +22,8 @@ class View_Order_Details(unittest.TestCase):
        user = "instructor" # instructor
        pwd = "instructor1a" #instructor1a
        driver = self.driver
-       #driver.get("http://mavstaruno.pythonanywhere.com/admin")
-       driver.get("http://127.0.0.1:8000/admin")
+       driver.get("http://mavstaruno.pythonanywhere.com/admin")
+       #driver.get("http://127.0.0.1:8000/admin")
        time.sleep(2)
        elem = driver.find_element_by_id("id_username")
        elem.send_keys(user)
